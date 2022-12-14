@@ -22,4 +22,5 @@ public class MoveResult {
         this.type = type;
         this.piece = piece;
     }
+
 }

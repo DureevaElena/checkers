@@ -81,13 +81,12 @@ public class CheckersApp extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception { //рисовка
+    public void start(Stage primaryStage) {
         Scene scene = new Scene(createBoard());
         primaryStage.setTitle("CheckersApp");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
 
     private Piece makePiece(PieceType type, int x, int y) {
