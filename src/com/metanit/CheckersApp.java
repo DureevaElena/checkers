@@ -100,7 +100,7 @@ public class CheckersApp extends Application {
 
                 MoveResult result;
 
-                // провека, что в клетке, а не заприделами
+
                 if (newX < 0 || newY < 0 || newX >= WIDTH || newY >= HEIGHT) {
                     result = new MoveResult(MoveType.NONE);
                 } else {
@@ -111,15 +111,15 @@ public class CheckersApp extends Application {
                 int y0 = CheckersApp.this.toBoard(piece.getOldY()); //?
 
                 switch (result.getType()) {
-                    case NONE: // нет шака
+                    case NONE: // нет шага
                         piece.abortMove();
                         break;
-                    case NORMAL: //перешла на новую, но не убила
+                    case NORMAL: //перешел на новую, но не убил
                         piece.move(newX, newY);
                         board[x0][y0].setPiece(null);
                         board[newX][newY].setPiece(piece);
                         break;
-                    case KILL: //убила
+                    case KILL: //убил
                         piece.move(newX, newY);
                         board[x0][y0].setPiece(null);
                         board[newX][newY].setPiece(piece);
