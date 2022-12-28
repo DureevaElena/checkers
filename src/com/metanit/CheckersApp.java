@@ -46,7 +46,6 @@ public class CheckersApp extends Application {
                     tile.setPiece(piece);
                     pieceGroup.getChildren().add(piece);
                 }
-
             }
         }
         return root;
@@ -71,14 +70,12 @@ public class CheckersApp extends Application {
                 return new MoveResult(MoveType.KILL, board[x1][y1].getPiece());
             }
         }
-
         return new MoveResult(MoveType.NONE);
     }
 
     private int toBoard(double pixel) {
         return (int)(pixel + TILE_SIZE / 2) / TILE_SIZE;
     }
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -87,7 +84,6 @@ public class CheckersApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     private Piece makePiece(PieceType type, int x, int y) {
         final Piece piece = new Piece(type, x, y);
@@ -99,7 +95,6 @@ public class CheckersApp extends Application {
                 int newY = CheckersApp.this.toBoard(piece.getLayoutY());
 
                 MoveResult result;
-
 
                 if (newX < 0 || newY < 0 || newX >= WIDTH || newY >= HEIGHT) {
                     result = new MoveResult(MoveType.NONE);
@@ -119,7 +114,7 @@ public class CheckersApp extends Application {
                         board[x0][y0].setPiece(null);
                         board[newX][newY].setPiece(piece);
                         break;
-                    case KILL: //убил
+                    case KILL:
                         piece.move(newX, newY);
                         board[x0][y0].setPiece(null);
                         board[newX][newY].setPiece(piece);
